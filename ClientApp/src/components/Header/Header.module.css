@@ -33,7 +33,8 @@
   align-items: center;
   position: fixed;
   top: 0; left: 0;
-  padding: 16px;
+  margin: 16px;
+  z-index: 0;
 }
 
 .ActiveLink {
