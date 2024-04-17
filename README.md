@@ -6,3 +6,5 @@ start react:
 `cd ./ClientApp`
 `npm i`
 `npm run dev` pizda
+
+x_x
