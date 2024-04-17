@@ -1,4 +1,5 @@
 start asp.net server: 
+`cd ./ServerApp`
 `dotnet run`
 
 start react:
