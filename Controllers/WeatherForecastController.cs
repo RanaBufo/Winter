@@ -2,6 +2,8 @@
 
 namespace Hikari.Controllers;
 
+//TODO: rewrite to minimal api 
+
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController(ILogger<WeatherForecastController> logger) : ControllerBase {
