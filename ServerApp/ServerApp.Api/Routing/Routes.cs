@@ -1,4 +1,4 @@
-﻿namespace Winter.ServerApp.Api.Routing;
+﻿namespace ServerApp.Api.Routing;
 
 internal static class Routes {
     private static WebApplication app = null!;
