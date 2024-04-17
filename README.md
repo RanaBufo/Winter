@@ -4,4 +4,4 @@ start asp.net server:
 start react:
 `cd ./ClientApp`
 `npm i`
-`npm run dev`
+`npm run dev` pizda
