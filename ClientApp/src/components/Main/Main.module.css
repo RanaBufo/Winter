@@ -23,7 +23,23 @@
       #00ADFFFF 0%, 
       #073AFF00 68%);
   width: 100%;
-  height: 100vh;
+  min-height: calc(100vh + 34px);
   margin-top: -34px;
   z-index: 1007;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Hero {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Hero h1 {
+  font-family: "Poppins-SemiBold";
+  color: #333;
 }

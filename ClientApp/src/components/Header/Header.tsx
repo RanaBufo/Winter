@@ -30,6 +30,12 @@ export default function Header() {
             >
               Sign up
             </NavLink>
+            <NavLink 
+              to="/tutorial"
+              className={({ isActive }) => isActive ? styles.ActiveLink : styles.DefaultLink} 
+            >
+              Tutorial
+            </NavLink>
         </header>
     </div>
     );

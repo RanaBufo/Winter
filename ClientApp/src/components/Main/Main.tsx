@@ -6,7 +6,9 @@ export default function Main() {
     return(
     <>
         <div className={styles.Main}>
-            <h1>Here is - Winter</h1>
+            <div className={styles.Hero}>
+                <h1>Here is - Winter 🥶</h1>
+            </div>
         </div>
         <Header />
     </>
