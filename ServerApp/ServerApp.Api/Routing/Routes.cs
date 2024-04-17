@@ -1,4 +1,4 @@
-﻿namespace Hikari.Routing;
+﻿namespace Winter.ServerApp.Api.Routing;
 
 internal static class Routes {
     private static WebApplication app = null!;
