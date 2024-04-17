@@ -16,7 +16,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-app.Configuration
 
 app.MapFallbackToFile("index.html");
 
