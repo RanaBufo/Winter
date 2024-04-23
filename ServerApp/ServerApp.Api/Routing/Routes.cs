@@ -1,5 +1,5 @@
-﻿using ServerApp.Api.DataTransferObjects.Requests;
-using ServerApp.Api.DataTransferObjects.Responses;
+﻿using Microsoft.AspNetCore.Authorization;
+using ServerApp.Api.DataTransferObjects;
 
 namespace ServerApp.Api.Routing;
 
@@ -26,10 +26,22 @@ internal static class Routes {
                     """)
             .WithOpenApi();
 
-        _ = app.MapPost("/bebra", () => {
-
+        _ = app.MapPost("/auth/login", (UserLoginRequest request) => {
         })
+            .Produces<UserLoginResponse>(StatusCodes.Status200OK)
             .WithTags(TAG);
+
+        _ = app.MapPost("/auth/logout", [Authorize] () => {
+        })
+            .Produces(StatusCodes.Status204NoContent)
+            .Produces(StatusCodes.Status401Unauthorized)
+            .RequireAuthorization()
+            .WithTags(TAG);
+
+        //todo
+        _ = app.MapPost("/auth/refresh", () => {
+
+        });
     }
 }
 
