@@ -35,8 +35,8 @@ internal static class Routes {
         })
             .Produces(StatusCodes.Status204NoContent)
             .Produces(StatusCodes.Status401Unauthorized)
-            .RequireAuthorization()
-            .WithTags(TAG);
+            .WithTags(TAG)
+            .WithOpenApi();
 
         //todo
         _ = app.MapPost("/auth/refresh", () => {
@@ -65,6 +65,3 @@ internal static class Routes {
             .Produces(StatusCodes.Status200OK);
     }
 }
-
-internal record class UserAccountResponse(long Id, string Email, string? Nickname, string? firstName, string? LastName, string Description);
-internal record class RefsreshTokenResponse(string JwtToken);
