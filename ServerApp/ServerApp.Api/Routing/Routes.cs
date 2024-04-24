@@ -43,7 +43,9 @@ internal static class Routes {
         })
             .WithTags(TAG)
             .Produces<RefsreshTokenResponse>(StatusCodes.Status200OK)
-            .ProducesProblem(StatusCodes.Status401Unauthorized);
+            .ProducesProblem(StatusCodes.Status401Unauthorized)
+            .WithDescription("Requred authorization")
+            .WithOpenApi();
     }
 
     private static void UserAuthorize() {
@@ -52,16 +54,23 @@ internal static class Routes {
         _ = app.MapGet("/account", [Authorize] () => {
         })
             .WithTags(TAG)
-            .Produces<UserAccountResponse>(StatusCodes.Status200OK);
+            .Produces<UserAccountResponse>(StatusCodes.Status200OK)
+            .WithDescription("Requred authorization")
+            .WithOpenApi();
 
         _ = app.MapDelete("/account", [Authorize] () => {
         })
             .WithTags(TAG)
-            .Produces(StatusCodes.Status204NoContent);
+            .Produces(StatusCodes.Status204NoContent)
+            .WithDescription("Requred authorization")
+            .WithOpenApi();
 
         _ = app.MapPatch("/account", [Authorize] () => {
         })
             .WithTags(TAG)
-            .Produces(StatusCodes.Status200OK);
+            .Produces(StatusCodes.Status200OK)
+            .WithDescription("Requred authorization")
+            .WithOpenApi();
+
     }
 }
