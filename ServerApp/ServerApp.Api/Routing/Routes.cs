@@ -40,8 +40,31 @@ internal static class Routes {
 
         //todo
         _ = app.MapPost("/auth/refresh", () => {
+        })
+            .WithTags(TAG)
+            .Produces<RefsreshTokenResponse>(StatusCodes.Status200OK)
+            .ProducesProblem(StatusCodes.Status401Unauthorized);
+    }
 
-        });
+    private static void UserAuthorize() {
+        const string TAG = "User";
+
+        _ = app.MapGet("/account", [Authorize] () => {
+        })
+            .WithTags(TAG)
+            .Produces<UserAccountResponse>(StatusCodes.Status200OK);
+
+        _ = app.MapDelete("/account", [Authorize] () => {
+        })
+            .WithTags(TAG)
+            .Produces(StatusCodes.Status204NoContent);
+
+        _ = app.MapPatch("/account", [Authorize] () => {
+        })
+            .WithTags(TAG)
+            .Produces(StatusCodes.Status200OK);
     }
 }
 
+internal record class UserAccountResponse(long Id, string Email, string? Nickname, string? firstName, string? LastName, string Description);
+internal record class RefsreshTokenResponse(string JwtToken);
