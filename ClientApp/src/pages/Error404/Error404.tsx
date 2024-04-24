@@ -1,7 +1,7 @@
-import Header from '../Header/Header'
+import Header from "@widgets/Header/Header";
 
 export default function Login() {
-    return(
+    return (
         <>
             <Header />
             <p>404 page, leave it.</p>

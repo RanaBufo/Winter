@@ -1,7 +1,7 @@
-import Header from '../Header/Header'
+import Header from "@widgets/Header/Header";
 
 export default function Login() {
-    return(
+    return (
         <>
             <Header />
             <p>Login page</p>
