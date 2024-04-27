@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  winter_frontend:
+    build:
+      context: ClientApp
+      dockerfile: Dockerfile.dev
+    container_name: winter_frontend
+    restart: always
+    volumes:
+      - ./ClientApp:/app
+    ports:
+      - 5173:5173
+    env_file:
+      - ./ClientApp/.env.development.local
