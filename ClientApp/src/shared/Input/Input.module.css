@@ -1,0 +1,32 @@
+.Container {
+    position: relative;
+}
+
+.Input {
+    border: 1px solid var(--link-color-hover);
+    outline: none;
+    background: var(--link-color-active);
+    padding: 8px 12px;
+    color: var(--main-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.Label {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    cursor: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.Active {
+    top: -14px;
+    font-size: 12px;
+    color: var(--purple);
+
+}
+
+.ActiveInput {
+    border: 1px solid var(--purple);
+}
