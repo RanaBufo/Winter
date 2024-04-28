@@ -3,7 +3,7 @@ import { useId, useState } from "react";
 
 import styles from "./Input.module.css";
 
-const Input: React.FC<InputProps> = ({ value, styleType }) => {
+const Input: React.FC<InputProps> = ({ value, styleType, required }) => {
   const [isActive, setIsActive] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
@@ -45,6 +45,7 @@ const Input: React.FC<InputProps> = ({ value, styleType }) => {
                 ${styles.Input} ${
                   isActive || inputValue !== "" ? styles.ActiveInput : ""
                 }`}
+        {...(required && { required: true })}
       />
     </div>
   );
