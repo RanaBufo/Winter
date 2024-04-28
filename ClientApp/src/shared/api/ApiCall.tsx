@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { ApiRequestProps } from "./model/ApiRequest.props";
 import { ApiResultProps } from "./model/ApiResult.props";
 
-const ApiRequest = <T,>({
+const ApiCall = <T,>({
     url,
     method,
     body,
@@ -22,11 +22,19 @@ const ApiRequest = <T,>({
             setSuccess(false);
             setError(null);
             try {
+                const token = localStorage.getItem("token");
+
+                const headers: Record<string, string> = {
+                    "Content-Type": "application/json",
+                };
+
+                if (token) {
+                    headers["token"] = token;
+                }
+
                 const response = await fetch(fullUrl, {
                     method: method || "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
+                    headers,
                     body: body ? JSON.stringify(body) : null,
                 });
                 if (response.ok) {
@@ -49,50 +57,29 @@ const ApiRequest = <T,>({
     return { data, loading, error, success };
 };
 
-export default ApiRequest;
+export default ApiCall;
 
-// 
-// ПРИМЕР ИСПОЛЬЗОВАНИЯ КОМПОНЕНТА
-// 
 
-// Интерфейс для ответа сервера при получении списка пользователей
+
+
+// Пример использования компонента без body
+
+// import React from 'react';
+// import ApiCall from './ApiCall';
+
+// // Интерфейс для ответа сервера при получении списка пользователей
 // interface User {
 //   id: number;
 //   name: string;
 //   email: string;
 // }
 
-// Интерфейс для тела запроса при создании пользователя
-// interface CreateUserRequest {
-//   name: string;
-//   email: string;
-//   password: string;
-// }
-
-// Интерфейс для ответа сервера при создании пользователя
-// interface CreateUserResponse {
-//   id: number;
-//   name: string;
-//   email: string;
-// }
-
 // const App = () => {
-//   Получение списка пользователей
-//   const { data: users, loading: usersLoading, error: usersError } = ApiRequest<User[]>({
+//
+//   // Получение списка пользователей
+//   const { data: users, loading: usersLoading, error: usersError } = ApiCall<User[]>({
 //     url: 'users', // Относительный путь
 //     method: 'GET',
-//   });
-
-//   Создание нового пользователя:
-// 
-//   const { data: newUser, loading: newUserLoading, error: newUserError, success: newUserSuccess } = ApiRequest<CreateUserResponse>({
-//     url: 'users', 
-//     method: 'POST',
-//     body: {
-//       name: 'John Doe',
-//       email: 'john.doe@example.com',
-//       password: 'mypassword',
-//     } as CreateUserRequest,
 //   });
 
 //   return (
@@ -107,7 +94,47 @@ export default ApiRequest;
 //           </li>
 //         ))}
 //       </ul>
+//     </div>
+//   );
+// };
 
+// export default App;
+
+
+// Пример использования компонента с body
+
+
+// import React from 'react';
+// import ApiCall from './ApiCall';
+
+// // Интерфейс для тела запроса при создании пользователя
+// interface CreateUserRequest {
+//   name: string;
+//   email: string;
+//   password: string;
+// }
+
+// // Интерфейс для ответа сервера при создании пользователя
+// interface CreateUserResponse {
+//   id: number;
+//   name: string;
+//   email: string;
+// }
+
+// const App = () => {
+//   // Создание нового пользователя
+//   const { data: newUser, loading: newUserLoading, error: newUserError, success: newUserSuccess } = ApiCall<CreateUserResponse>({
+//     url: 'users', // Относительный путь
+//     method: 'POST',
+//     body: {
+//       name: 'John Doe',
+//       email: 'john.doe@example.com',
+//       password: 'password',
+//     } as CreateUserRequest,
+//   });
+
+//   return (
+//     <div>
 //       <h2>Create User</h2>
 //       {newUserLoading && <div>Creating user...</div>}
 //       {newUserError && <div>Error: {newUserError.message}</div>}
