@@ -1,6 +1,6 @@
 import Header from "@widgets/Header/Header";
-import Button from "@/shared/Button/Button";
-import Input from "@/shared/Input/Input";
+import Button from "@shared/Button/Button";
+import Input from "@shared/Input/Input";
 
 export default function Login() {
     return (
@@ -8,8 +8,8 @@ export default function Login() {
             <Header />
             <p>Login page</p>
             <form method="post">
-                <Input styleType="Input2" value="Email" required/>
-                <Input styleType="Input2" value="Password" required/>
+                <Input styleType="Input2" placeholderValue="Email" required/>
+                <Input styleType="Input2" placeholderValue="Password" required/>
                 <Button styleType="Button1" value="Sing in"/>
             </form>
         </>

@@ -1,9 +1,9 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Header from "@widgets/Header/Header";
 
 import styles from "./ui/Main.module.css";
-import Button from "@/shared/Button/Button";
+import Button from "@shared/Button/Button";
 
 export default function Main() {
     return (
@@ -14,9 +14,9 @@ export default function Main() {
                     <div className={styles.HeroButtons}>
                         <Link to="/login">
                             <Button
-
                                 value="Use Winter"
                                 styleType="Button1"
+                                onClick={() => console.log("hello")}
                             />
                         </Link>
                     </div>

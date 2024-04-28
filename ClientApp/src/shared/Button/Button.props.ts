@@ -1,5 +1,5 @@
 export interface ButtonProps {
     value?: string
     styleType: "Button1" | "Button2" | "Button3"
-    callback?: Function
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

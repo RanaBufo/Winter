@@ -1,5 +1,8 @@
 export interface InputProps {
-    value?: string
     required: boolean
-    styleType: "Input1" | "Input2" | "Input3"
+    styleType: string
+    placeholderValue: string;
+    type?: "password" | "text" | "email";
+    value?: string;
+    onChange?: (value: string) => void;
 }

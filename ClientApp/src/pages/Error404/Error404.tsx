@@ -6,7 +6,7 @@ export default function Login() {
         <>
             <Header />
             <p>404 page, leave it.</p>
-            <Button value="hello" callback={() => console.log("click")} styleType="Button2"/>
+            <Button value="hello" onClick={() => console.log("click")} styleType="Button2"/>
         </>
     );
 }
