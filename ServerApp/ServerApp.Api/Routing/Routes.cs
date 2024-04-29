@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using ServerApp.Api.DataTransferObjects;
+using ServerApp.Api.DataTransferObjects.Account;
 
 namespace ServerApp.Api.Routing;
 
 internal static class Routes {
     private static WebApplication app = null!;
 
+    private const string WIKIES_TAG = "Wikies";
     private const string SEARCH_TAG = "Searching";
     private const string AUTH_TAG = "Authentication";
     private const string ACCOUNT_TAG = "Account";
@@ -17,14 +19,16 @@ internal static class Routes {
         Auth();
         UserAuthorize();
         Wikies();
+        Notes();
         Search();
     }
 
     private static void Auth() {
         _ = app.MapPost("/auth/register", (UserRegistrationRequest request) => {
+            // akshdlk;asd
         })
-            .Produces<UserAddResponse>(StatusCodes.Status201Created)
-            .WithTags(AUTH_TAG, "Bebra")
+            .Produces<UserRegistrationResponse>(StatusCodes.Status201Created)
+            .WithTags(AUTH_TAG)
             .WithSummary("Register a user")
             .WithDescription("""
                     Register a user by required email and password and unnecessary nickname and other personal information. 
@@ -38,6 +42,7 @@ internal static class Routes {
             .WithTags(AUTH_TAG);
 
         _ = app.MapPost("/auth/logout", [Authorize] () => {
+            // чистит куки
         })
             .Produces(StatusCodes.Status204NoContent)
             .Produces(StatusCodes.Status401Unauthorized)
@@ -76,55 +81,48 @@ internal static class Routes {
             .Produces(StatusCodes.Status200OK)
             .WithDescription("Requred authorization")
             .WithOpenApi();
-
-
     }
 
     // TODO: dto
     private static void Wikies() {
-        const string TAG = "Wikies";
 
         _ = app.MapGet("/account/wiki/all", [Authorize] () => { })
-            .WithTags(TAG);
+            .WithTags(WIKIES_TAG);
 
         _ = app.MapGet("/account/wiki/{id:long}", [Authorize] () => { })
-            .WithTags(TAG);
+            .WithTags(WIKIES_TAG);
 
         _ = app.MapGet("/account/wiki/{name:alpha}", [Authorize] () => { })
-            .WithTags(TAG);
-
-        _ = app.MapPost("/account/wiki/{id:long}", [Authorize] () => { })
-            .WithTags(TAG);
+            .WithTags(WIKIES_TAG);
 
         _ = app.MapPost("/account/wiki/{name:alpha}", [Authorize] () => { })
-            .WithTags(TAG);
+            .WithTags(WIKIES_TAG);
 
         _ = app.MapDelete("/account/wiki/{id:long}", [Authorize] () => { })
-            .WithTags(TAG);
+            .WithTags(WIKIES_TAG);
 
         _ = app.MapDelete("/account/wiki/{name:alpha}", [Authorize] () => { })
-            .WithTags(TAG);
+            .WithTags(WIKIES_TAG);
     }
 
     // TODO: dto
     private static void Notes() {
-
-        _ = app.MapGet("/account/notes/all", [Authorize] () => { })
+        _ = app.MapGet("/account/wiki/{wikiName:alpha}/notes/all", [Authorize] () => { })
             .WithTags(NOTES_TAG);
 
-        _ = app.MapGet("/account/notes/{id:long}", [Authorize] () => { })
+        _ = app.MapGet("/account/wiki/{wikiId:long}/notes/all", [Authorize] () => { })
             .WithTags(NOTES_TAG);
 
-        _ = app.MapGet("/account/notes/{nickname:alpha}", [Authorize] () => { })
+        _ = app.MapPost("/account/wiki/{wikiName:alpha}/notes", [Authorize] () => { })
             .WithTags(NOTES_TAG);
 
-        _ = app.MapPost("/account/notes/{id:long}", [Authorize] () => { })
+        _ = app.MapPost("/account/wiki/{wikiId:long}/notes", [Authorize] (long wikiId) => { })
             .WithTags(NOTES_TAG);
 
-        _ = app.MapPost("/account/notes/{nickname:alpha}", [Authorize] () => { })
+        _ = app.MapDelete("/account/wiki/{wikiName:alpha}/notes/{noteId:long}", [Authorize] () => { })
             .WithTags(NOTES_TAG);
 
-        _ = app.MapDelete("/account/notes/{id:long}", [Authorize] () => { })
+        _ = app.MapDelete("/account/wiki/{wikiId:long}/notes/{noteId:long}", [Authorize] () => { })
             .WithTags(NOTES_TAG);
     }
 
@@ -136,6 +134,24 @@ internal static class Routes {
             .WithTags(SEARCH_TAG);
 
         _ = app.MapGet("/search/wiki/account/{id:long}", (string? name) => { })
+            .WithTags(SEARCH_TAG);
+
+        _ = app.MapGet("/search/wiki/account/{nickname:alpha}", (string? name) => { })
+            .WithTags(SEARCH_TAG);
+
+        _ = app.MapGet("/search/notes/account", () => { })
+            .WithTags(SEARCH_TAG);
+
+        _ = app.MapGet("/search/notes/account/{id:long}", () => { })
+            .WithTags(SEARCH_TAG);
+
+        _ = app.MapGet("/search/notes/account/{nickname:alpha}", () => { })
+            .WithTags(SEARCH_TAG);
+
+        _ = app.MapGet("/search/wiki/{id:long}/notes", () => { })
+            .WithTags(SEARCH_TAG);
+
+        _ = app.MapGet("/search/wiki/{name:alpha}/notes", () => { })
             .WithTags(SEARCH_TAG);
 
         _ = app.MapGet("/search/account", (string? firstName, string? lastName, string? nickname) => { })
