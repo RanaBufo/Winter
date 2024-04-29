@@ -13,3 +13,12 @@ services:
       - 5173:5173
     env_file:
       - ./ClientApp/.env.development.local
+
+  winter_backend:
+    build:
+      ServerApp/
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 1488:8080
+      
