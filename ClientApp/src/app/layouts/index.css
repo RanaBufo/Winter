@@ -40,11 +40,18 @@ a:hover {
   color: #535bf2;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
   min-height: 100vh;
 }
 
@@ -54,6 +61,10 @@ h1 {
 }
 
 #root {
-  min-width: 100%;
-  max-width: 100%;
+  min-width: 100vw;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
