@@ -24,7 +24,7 @@ internal static class Routes {
         _ = app.MapPost("/auth/register", (UserRegistrationRequest request) => {
         })
             .Produces<UserAddResponse>(StatusCodes.Status201Created)
-            .WithTags(AUTH_TAG)
+            .WithTags(AUTH_TAG, "Bebra")
             .WithSummary("Register a user")
             .WithDescription("""
                     Register a user by required email and password and unnecessary nickname and other personal information. 
