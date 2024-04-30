@@ -85,16 +85,22 @@ It is planned that our project will have open source code and the ability to dep
   dotnet run -c Release --project  ./ServerApp/ServerApp.Api
   ```
 
+- go to client folder:
+
+  ```
+  cd ./ClientApp
+  ```
+
 - install node.js dependencies:
 
   ```
-  npm i ./ClientApp 
+  npm i 
   ```
 
 - start client:
   
   ```
-  npm run --prefix ./ClientApp dev 
+  npm run dev 
   ```
 
 - congrats!
