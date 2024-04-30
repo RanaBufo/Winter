@@ -5,6 +5,7 @@
 ![Badge Pull Requests] 
 ![Badge Issues]
 ![Badge Hi Mom]
+[![chatroom icon](https://patrolavia.github.io/telegram-badge/chat.png)](https://t.me/+O_QwU8ifzcdkNmE6)
 <br>
 ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -119,7 +120,6 @@ You have several ways to contribute.
 _\_\_\/\/_/_/_   | 'V' || | | ' | | | | _|| v / 
  / /_/\/\_\ \    !_/ \_!|_|_|\__| |_| |___|_|_\
 ```
-
 
 <!----------------------------------{ Badges }--------------------------------->
 
