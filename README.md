@@ -2,14 +2,18 @@
 
 ![](https://raw.githubusercontent.com/DmitryHudrich/Winter/new-readme-draft/Assets/header.gif)
 
-![Badge Language] 
 ![Badge Pull Requests] 
 ![Badge Issues]
 ![Badge Hi Mom]
+<br>
+![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
 <br>
 
 This innovative tool seamlessly integrates your daily work applications into a single platform. It serves as the comprehensive workspace for both you and your team.
+> Winter will bring together strangers with similar interests, as winter used to bring together unfamiliar travelers in different huts
 
 ---
 
