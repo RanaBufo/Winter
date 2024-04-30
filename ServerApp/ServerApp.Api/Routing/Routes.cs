@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using ServerApp.Api.DataTransferObjects;
 using ServerApp.Api.DataTransferObjects.Account;
+using ServerApp.Api.DataTransferObjects.Note;
+using ServerApp.Api.DataTransferObjects.Wiki;
 
 namespace ServerApp.Api.Routing;
 
@@ -87,42 +89,59 @@ internal static class Routes {
     private static void Wikies() {
 
         _ = app.MapGet("/account/wiki/all", [Authorize] () => { })
+            .Produces<WikiResponseArray>(StatusCodes.Status200OK)
             .WithTags(WIKIES_TAG);
 
-        _ = app.MapGet("/account/wiki/{id:long}", [Authorize] () => { })
+        _ = app.MapGet("/account/wiki/{id:long}", [Authorize] (long? id) => { })
+            .Produces<WikiResponse>(StatusCodes.Status200OK)
             .WithTags(WIKIES_TAG);
 
-        _ = app.MapGet("/account/wiki/{name:alpha}", [Authorize] () => { })
+        _ = app.MapGet("/account/wiki/{name:alpha}", [Authorize] (string? name) => { })
+            .Produces<WikiResponse>(StatusCodes.Status200OK)
             .WithTags(WIKIES_TAG);
 
-        _ = app.MapPost("/account/wiki/{name:alpha}", [Authorize] () => { })
+        _ = app.MapPost("/account/wiki/{name:alpha}", [Authorize] (string? name, WikiAddRequest wikiAdd) => { })
+             .Produces<WikiAddRespose>(StatusCodes.Status201Created
+             )
             .WithTags(WIKIES_TAG);
 
-        _ = app.MapDelete("/account/wiki/{id:long}", [Authorize] () => { })
+        _ = app.MapDelete("/account/wiki/{id:long}", [Authorize] (long? id) => { })
+            .Produces(StatusCodes.Status204NoContent)
+            .ProducesProblem(StatusCodes.Status404NotFound)
             .WithTags(WIKIES_TAG);
 
-        _ = app.MapDelete("/account/wiki/{name:alpha}", [Authorize] () => { })
+        _ = app.MapDelete("/account/wiki/{name:alpha}", [Authorize] (string? name) => { })
+            .Produces(StatusCodes.Status204NoContent)
+            .ProducesProblem(StatusCodes.Status404NotFound)
             .WithTags(WIKIES_TAG);
     }
 
     // TODO: dto
     private static void Notes() {
-        _ = app.MapGet("/account/wiki/{wikiName:alpha}/notes/all", [Authorize] () => { })
+        _ = app.MapGet("/account/wiki/{wikiName:alpha}/notes/all", [Authorize] (string wikiName) => { })
+            .Produces<NoteResponse>(StatusCodes.Status200OK)
             .WithTags(NOTES_TAG);
 
-        _ = app.MapGet("/account/wiki/{wikiId:long}/notes/all", [Authorize] () => { })
+        _ = app.MapGet("/account/wiki/{wikiId:long}/notes/all", [Authorize] (long wikiId) => { })
+            .Produces<NoteResponse>(StatusCodes.Status200OK)
             .WithTags(NOTES_TAG);
 
-        _ = app.MapPost("/account/wiki/{wikiName:alpha}/notes", [Authorize] () => { })
+        _ = app.MapPost("/account/wiki/{wikiName:alpha}/notes", [Authorize] (string wikiName, NoteAddRequest note) => { })
+            .Produces<NoteAddResponse>(StatusCodes.Status201Created)
             .WithTags(NOTES_TAG);
 
-        _ = app.MapPost("/account/wiki/{wikiId:long}/notes", [Authorize] (long wikiId) => { })
+        _ = app.MapPost("/account/wiki/{wikiId:long}/notes", [Authorize] (long wikiId, NoteAddRequest note) => { })
+            .Produces<NoteAddResponse>(StatusCodes.Status201Created)
             .WithTags(NOTES_TAG);
 
-        _ = app.MapDelete("/account/wiki/{wikiName:alpha}/notes/{noteId:long}", [Authorize] () => { })
+        _ = app.MapDelete("/account/wiki/{wikiName:alpha}/notes/{noteId:long}", [Authorize] (string wikiName, long noteId) => { })
+            .Produces(StatusCodes.Status204NoContent)
+            .ProducesProblem(StatusCodes.Status404NotFound)
             .WithTags(NOTES_TAG);
 
-        _ = app.MapDelete("/account/wiki/{wikiId:long}/notes/{noteId:long}", [Authorize] () => { })
+        _ = app.MapDelete("/account/wiki/{wikiId:long}/notes/{noteId:long}", [Authorize] (long wikiId, long noteId) => { })
+            .Produces(StatusCodes.Status204NoContent)
+            .ProducesProblem(StatusCodes.Status404NotFound)
             .WithTags(NOTES_TAG);
     }
 
