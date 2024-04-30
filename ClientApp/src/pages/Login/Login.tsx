@@ -8,8 +8,8 @@ export default function Login() {
             <Header />
             <p>Login page</p>
             <form method="post">
-                <Input styleType="Input2" placeholderValue="Email" required/>
-                <Input styleType="Input2" placeholderValue="Password" required/>
+                <Input styleType="Input1" placeholderValue="Email" required/>
+                <Input styleType="Input1" placeholderValue="Password" required/>
                 <Button styleType="Button1" value="Sing in"/>
             </form>
         </>

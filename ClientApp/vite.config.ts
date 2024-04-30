@@ -14,5 +14,13 @@ export default defineConfig({
 			"@shared": path.resolve(__dirname, "./src/shared"),
 		}
 	},
-    plugins: [react()],
+
+  plugins: [react()],
+  server: {
+    host: true,
+    port: 8000, 
+    watch: {
+      usePolling: true
+    }
+  }
 });
