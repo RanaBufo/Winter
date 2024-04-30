@@ -1,7 +1,24 @@
-![](http://forgif)
+<div align = center>
+
+![](https://raw.githubusercontent.com/DmitryHudrich/Winter/new-readme-draft/Assets/158847.gif)
+
+![Badge Language] 
+![Badge Pull Requests] 
+![Badge Issues]
+![Badge Hi Mom]
+
+<br>
+
+This innovative tool seamlessly integrates your daily work applications into a single platform. It serves as the comprehensive workspace for both you and your team.
+
+---
+
 # ❄️ What's Winter?
+
+</div>
 Our team, Winter developers, wants to make a flexible, user-friendly and cloud-oriented solution for creating beautiful notes, articles, knowledge bases to group your clutter in one place, like chaotic snowflakes that eventually add up to one beautiful snow shroud.
 Winter will allow you to organize your ideas and plans in the form of flexible but simple records. having the ability to refer to others in one entry, you form a whole system of notes. there may be several such systems, each of which contains entries on a specific topic, it may be:
+
 - your personal knowledge base, marked as private and accessible only to you;
 - documentation on your project, accessible only to those people to whom you have given access to it;
 - the history of the world, your book, accessible to everyone so that everyone can explore your world closer.
@@ -100,5 +117,11 @@ _\_\_\/\/_/_/_   | 'V' || | | ' | | | | _|| v /
 ```
 
 
+<!----------------------------------{ Badges }--------------------------------->
 
+[Badge Issues]: https://img.shields.io/github/issues/DmitryHudrich/Winter
+[Badge Pull Requests]: https://img.shields.io/github/issues-pr/DmitryHudrich/Winter
+[Badge Language]: https://img.shields.io/github/languages/top/DmitryHudrich/Winter
+[Badge Lines]: https://img.shields.io/tokei/lines/github/hyprwm/DmitryHudrich/Winter
+[Badge Hi Mom]: https://img.shields.io/badge/Hi-mom!-ff69b4
 
