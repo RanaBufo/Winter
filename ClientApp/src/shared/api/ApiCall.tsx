@@ -15,8 +15,6 @@ const ApiCall = <T,>({
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<Error | null>(null);
     const [success, setSuccess] = useState<boolean>(false);
-
-    useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             setSuccess(false);
@@ -51,96 +49,10 @@ const ApiCall = <T,>({
             }
         };
 
-        fetchData();
-    }, [url, method, body, fullUrl]);
+     fetchData()
 
     return { data, loading, error, success };
 };
 
 export default ApiCall;
 
-
-
-
-// Пример использования компонента без body
-
-// import React from 'react';
-// import ApiCall from './ApiCall';
-
-// // Интерфейс для ответа сервера при получении списка пользователей
-// interface User {
-//   id: number;
-//   name: string;
-//   email: string;
-// }
-
-// const App = () => {
-//
-//   // Получение списка пользователей
-//   const { data: users, loading: usersLoading, error: usersError } = ApiCall<User[]>({
-//     url: 'users', // Относительный путь
-//     method: 'GET',
-//   });
-
-//   return (
-//     <div>
-//       <h1>User List</h1>
-//       {usersLoading && <div>Loading users...</div>}
-//       {usersError && <div>Error: {usersError.message}</div>}
-//       <ul>
-//         {users?.map((user) => (
-//           <li key={user.id}>
-//             {user.name} ({user.email})
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default App;
-
-
-// Пример использования компонента с body
-
-
-// import React from 'react';
-// import ApiCall from './ApiCall';
-
-// // Интерфейс для тела запроса при создании пользователя
-// interface CreateUserRequest {
-//   name: string;
-//   email: string;
-//   password: string;
-// }
-
-// // Интерфейс для ответа сервера при создании пользователя
-// interface CreateUserResponse {
-//   id: number;
-//   name: string;
-//   email: string;
-// }
-
-// const App = () => {
-//   // Создание нового пользователя
-//   const { data: newUser, loading: newUserLoading, error: newUserError, success: newUserSuccess } = ApiCall<CreateUserResponse>({
-//     url: 'users', // Относительный путь
-//     method: 'POST',
-//     body: {
-//       name: 'John Doe',
-//       email: 'john.doe@example.com',
-//       password: 'password',
-//     } as CreateUserRequest,
-//   });
-
-//   return (
-//     <div>
-//       <h2>Create User</h2>
-//       {newUserLoading && <div>Creating user...</div>}
-//       {newUserError && <div>Error: {newUserError.message}</div>}
-//       {newUserSuccess && <div>User created successfully!</div>}
-//     </div>
-//   );
-// };
-
-// export default App;
