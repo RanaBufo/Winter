@@ -213,7 +213,7 @@ internal static class Routes {
             .WithTags(SEARCH_TAG)
             .WithSummary("Search wiki in global")
             .WithDescription("""
-                    Searches a wiki from the entire pool by required name or id of the wiki
+                    Searches a wiki from the entire pool by required name of the wiki
                     """)
             .WithOpenApi();
 
@@ -221,7 +221,7 @@ internal static class Routes {
             .WithTags(SEARCH_TAG)
             .WithSummary("Search wiki of a user")
             .WithDescription("""
-                    Searches a wiki among user's wikies by required name or id of the wiki
+                    Searches a wiki among user's wikies by required name of the wiki
                     """)
             .WithOpenApi();
 
@@ -253,7 +253,7 @@ internal static class Routes {
             .WithTags(SEARCH_TAG)
             .WithSummary("Search note by its id")
             .WithDescription("""
-                    Searches user's note using id of note
+                    Searches user's note using id of user
                     """)
             .WithOpenApi();
 
@@ -261,7 +261,7 @@ internal static class Routes {
             .WithTags(SEARCH_TAG)
             .WithSummary("Search note by its name")
             .WithDescription("""
-                    Searches user's note using name of note
+                    Searches user's note using name of user
                     """)
             .WithOpenApi();
 
@@ -269,7 +269,7 @@ internal static class Routes {
             .WithTags(SEARCH_TAG)
             .WithSummary("Search note in wiki by its id")
             .WithDescription("""
-                    Searches user's note among notes in wiki by required id of wiki
+                    Searches note among notes in wiki by required id of wiki
                     """)
             .WithOpenApi();
 
@@ -277,7 +277,7 @@ internal static class Routes {
             .WithTags(SEARCH_TAG)
             .WithSummary("Search note in wiki by its name")
             .WithDescription("""
-                    Searches user's note among notes in wiki by required name of wiki
+                    Searches note among notes in wiki by required name of wiki
                     """)
             .WithOpenApi();
 
